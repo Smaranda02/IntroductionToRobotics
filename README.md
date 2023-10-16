@@ -1,2 +1,2 @@
 # Introduction To Robotics
-This course at my faculty is presenting through hands-on projects the know-how on microcontrollers and Robotics 
+This course taken at the Faculty of Mathematics and Computer Science, University of Bucharest is presenting through hands-on projects the know-how on microcontrollers and Robotics .
