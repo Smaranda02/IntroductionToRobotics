@@ -28,7 +28,7 @@ void loop() {
   potValueForRedLed = analogRead(potPinForRedLed);
   potValueForGreenLed = analogRead(potPinForGreenLed);
 
-  //We map the values outputed by the potentiometers which are in the interval [0,1023] to the interval [0,255] (values accepted 
+  //We map the values output by the potentiometers which are in the interval [0,1023] to the interval [0,255] (values accepted 
   //by analogWrite function)
   
   voltageBlue = map(potValueForBlueLed,0,1023,0,255);   
