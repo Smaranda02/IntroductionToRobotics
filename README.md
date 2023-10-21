@@ -10,3 +10,7 @@ Technical Task :
 Green, and Blue. This control must leverage digital electronics. Specifically,
 you need to read the potentiometer’s value with Arduino and then write a
 mapped value to the LED pins.
+
+- Link video YouTube : https://youtu.be/YBlDi4F6qHw?si=--Z2Zk2bOt9gVghe
+
+![RGB_Led](https://github.com/Smaranda02/IntroductionToRobotics/assets/62556419/1a9f3c76-5724-4067-98f2-6cd62dcbefde)
