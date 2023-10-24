@@ -4,17 +4,23 @@ const int blueLedPin = 11;
 const int redLedPin = 9;
 const int greenLedPin = 10;
 
-const int potPinForBlueLed = A0;
-const int potPinForRedLed = A2;
-const int potPinForGreenLed = A1;
+const int variableResistorPinForBlueLed = A0;
+const int variableResistorPinForRedLed = A2;
+const int variableResistorPinForGreenLed = A1;
 
-int potValueForBlueLed = 0;
-int potValueForRedLed = 0;
-int potValueForGreenLed = 0;
+int variableResistorValueForBlueLed = 0;
+int variableResistorValueForRedLed = 0;
+int variableResistorValueForGreenLed = 0;
 
 float voltageBlue = 0;
 float voltageRed = 0;
 float voltageGreen = 0;
+
+int maxMappedVoltage = 255;
+int minMappedVoltage = 0;
+
+int maxUnmappedValue = 1023;
+int minUnmappedValue = 0; 
 
 void setup() {
   // initialize serial communication at 9600 bits per second:
@@ -24,16 +30,15 @@ void setup() {
 
 void loop() {
   // read the input on analog pins 0,1,2:
-  potValueForBlueLed = analogRead(potPinForBlueLed); 
-  potValueForRedLed = analogRead(potPinForRedLed);
-  potValueForGreenLed = analogRead(potPinForGreenLed);
+  variableResistorValueForBlueLed = analogRead(variableResistorPinForBlueLed); 
+  variableResistorValueForRedLed = analogRead(variableResistorPinForRedLed);
+  variableResistorValueForGreenLed = analogRead(variableResistorPinForGreenLed);
 
   //We map the values output by the potentiometers which are in the interval [0,1023] to the interval [0,255] (values accepted 
   //by analogWrite function)
-  
-  voltageBlue = map(potValueForBlueLed,0,1023,0,255);   
-  voltageRed = map(potValueForRedLed,0,1023,0,255);
-  voltageGreen = map(potValueForGreenLed,0,1023,0,255);
+  voltageBlue = map(variableResistorValueForBlueLed,minUnmappedValue,maxUnmappedValue,minMappedVoltage,maxMappedVoltage);   
+  voltageRed = map(variableResistorValueForRedLed,minUnmappedValue,maxUnmappedValue,minMappedVoltage,maxMappedVoltage);
+  voltageGreen = map(variableResistorValueForGreenLed,minUnmappedValue,maxUnmappedValue,minMappedVoltage,maxMappedVoltage);
 
   Serial.println(voltageRed);
   analogWrite(blueLedPin, voltageBlue);
