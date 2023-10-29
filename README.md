@@ -52,3 +52,8 @@ state)
 - Buttons (At least 3 for floor calls)
 - Buzzer (1) - optional for Computer Science, mandatory for CTI
 - Resistors and wires as needed
+
+#### Link video YouTube : https://youtu.be/plprVaXs6RE?si=7qVTJfLfIF43Z5FZ
+![elevator](https://github.com/Smaranda02/IntroductionToRobotics/assets/62556419/e48ecd26-a915-4afc-984b-167fa4bb9d89)
+
+
