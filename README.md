@@ -31,7 +31,7 @@ blink when the elevator is moving and remain static when stationary.
 - Buttons: Implement 3 buttons that represent the call buttons from the
 3 floors. When pressed, the elevator should simulate movement towards
 the floor after a short interval (2-3 seconds).
-- Buzzer (optional for Computer Science, mandatory for CTI):
+- Buzzer:
 The buzzer should sound briefly during the following scenarios:
 – Elevator arriving at the desired floor (something resembling a ”cling”).
 – Elevator doors closing and movement (pro tip: split them into 2
@@ -50,7 +50,7 @@ unintentional repeated button presses.
 - LEDs (At least 4: 3 for the floors and 1 for the elevator’s operational
 state)
 - Buttons (At least 3 for floor calls)
-- Buzzer (1) - optional for Computer Science, mandatory for CTI
+- Buzzer (1) 
 - Resistors and wires as needed
 
 #### Link video YouTube : https://youtu.be/plprVaXs6RE?si=7qVTJfLfIF43Z5FZ
