@@ -56,4 +56,17 @@ state)
 #### Link video YouTube : https://youtu.be/plprVaXs6RE?si=7qVTJfLfIF43Z5FZ
 ![elevator](https://github.com/Smaranda02/IntroductionToRobotics/assets/62556419/e48ecd26-a915-4afc-984b-167fa4bb9d89)
 
+## Homework 3
+
+### Task :
+You will use the joystick to control the position of
+the segment and ”draw” on the display. The movement between segments
+should be natural, meaning they should jump from the current position
+only to neighbors, but without passing through ”walls”.
+
+### Components:
+- 1 7-segment display, 1 joystick, resistors and wires (per logic)
+
+
+
 
