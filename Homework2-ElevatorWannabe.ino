@@ -78,7 +78,7 @@ void loop() {
           floors[i].buttonState = floors[i].buttonStateReading;
 
            //The button is pressed
-          if (floors[i].buttonState == LOW) { 
+          if (floors[i].buttonState == LOW && arrived==true) { 
             destination = i;
             lastClosingDoors = millis();
           }
