@@ -66,7 +66,9 @@ only to neighbors, but without passing through ”walls”.
 
 ### Components:
 - 1 7-segment display, 1 joystick, resistors and wires (per logic)
+![7_SegmentDisplay](https://github.com/Smaranda02/IntroductionToRobotics/assets/62556419/ac76bb89-bec1-4c62-ac10-d5d18891bd9c)
 
+#### Link video YouTube : https://youtu.be/rHZj7NF1vSM?si=Sbb81Y0wDbydeFjb
 
 
 
