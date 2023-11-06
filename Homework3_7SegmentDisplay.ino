@@ -59,7 +59,7 @@ int yValue = 0;
 
 // a = first line
 //...
-// g = 6th line
+// g = 7th line
 // dp = 8th line
 // UP = first column
 // DOWN = second column
