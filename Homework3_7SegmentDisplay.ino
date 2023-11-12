@@ -132,20 +132,7 @@ void loop() {
 
   //We set the currentMove to -1 in order to interpret each joyStick move only a single time  
   currentMove = -1;
-
-  // if (swPressed) {
-  //   ledStates[currentSegment] = !ledStates[currentSegment];
-  //   swPressed = false;
-  // }
-
-  // if(reset){
-  //   for (int i = 0; i < noOfLeds; i++) {
-  //     ledStates[i]=0;
-  //   }
-
-  //   reset = false;
-  // }
-
+  
   //this function makes the selected segment to blink
   flicker();
   checkPossiblePress();
@@ -346,20 +333,6 @@ void handleInterrupt() {
   possiblePress = true;
   shouldStartCounter = true;
 
-  // static unsigned long interruptTime = 0;  // Retains its value between calls
-  // interruptTime = micros();                // Get the current time in microseconds
-
-  // // If interrupts come faster than the debounce delay, ignore them
-  // if (interruptTime - lastInterruptTime > debounceDelay * 1000) {  // Convert debounceDelay to microseconds for comparison
-  //   swPressed = true;
-  //   lastLongPress = micros();
-  // }
-
-  // if(micros() - lastLongPress > resetTime * 1000){
-  //   reset = true;
-  // }
-
-  // lastInterruptTime = interruptTime;
 }
 
 
