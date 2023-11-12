@@ -4,7 +4,13 @@ This course taken at the Faculty of Mathematics and Computer Science, University
 ## Homework 0
 Setup created
 
-## Homework 1
+<details>
+<summary>
+  
+  ## Homework 1
+
+ </summary>
+ 
 ### Technical Task : 
 - Use a separate potentiometer for controlling each color of the RGB LED: Red,
 Green, and Blue. This control must leverage digital electronics. Specifically,
@@ -19,8 +25,16 @@ mapped value to the LED pins.
 #### Link video YouTube : https://youtu.be/YBlDi4F6qHw?si=--Z2Zk2bOt9gVghe
 
 ![RGB_Led](https://github.com/Smaranda02/IntroductionToRobotics/assets/62556419/1a9f3c76-5724-4067-98f2-6cd62dcbefde)
+</details>
 
-## Homework 2
+
+<details>
+<summary>
+  
+  ## Homework 2  
+
+ </summary>
+ 
 ### Technical Task : 
 Design a control system that simulates a 3-floor elevator using the Arduino
 platform. Here are the specific requirements:
@@ -55,8 +69,14 @@ state)
 
 #### Link video YouTube : https://youtu.be/plprVaXs6RE?si=7qVTJfLfIF43Z5FZ
 ![elevator](https://github.com/Smaranda02/IntroductionToRobotics/assets/62556419/e48ecd26-a915-4afc-984b-167fa4bb9d89)
+</details>
 
-## Homework 3
+<details>
+<summary>
+  
+  ## Homework 3 
+
+ </summary>
 
 ### Task :
 You will use the joystick to control the position of
@@ -69,6 +89,24 @@ only to neighbors, but without passing through ”walls”.
 ![7_SegmentDisplay](https://github.com/Smaranda02/IntroductionToRobotics/assets/62556419/ac76bb89-bec1-4c62-ac10-d5d18891bd9c)
 
 #### Link video YouTube : https://youtu.be/rHZj7NF1vSM?si=Sbb81Y0wDbydeFjb
+</details>
 
+<details>
+<summary>
+  
+  ## Homework 4  
 
+ </summary>
 
+### Task :
+Using the 4 digit 7 segment display and 3 buttons,
+you should implement a stopwatch timer that counts in 10ths of a second
+and has a save lap functionality (similar to most basic stopwatch functions
+on most phones).
+
+### Componenets : 
+ - 1 7-segment display, 3 buttons, resistors and wires (per
+logic)
+
+#### Link video YouTube : 
+</details>
