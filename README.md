@@ -1,9 +1,6 @@
 # Introduction To Robotics (2023-2024)
 This course taken at the Faculty of Mathematics and Computer Science, University of Bucharest is presenting through hands-on projects the basic know-how on microcontrollers and Robotics, with the help of Arduino.
 
-## Homework 0
-Setup created
-
 <details>
 <summary>
   
