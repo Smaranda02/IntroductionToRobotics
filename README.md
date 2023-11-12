@@ -27,13 +27,11 @@ mapped values to the LED pins.
  
 ### Technical Task : 
 Simulates a 3-floor elevator using  Arduino.
-- LED Indicators (4): 3 LEDs for each floor and another one representing 
-the elevator’s operational state which blinks when the elevator is moving and remain static when stationary.
-- Buttons: 3 buttons (with debounce) that represent the call buttons from the
-3 floors. When pressed, the elevator should simulate movement towards
+- 3 LEDs for each floor and 1 representing 
+the elevator’s operational state which blinks when the elevator is moving
+- 3 call buttons from each floor. When pressed, the elevator simulates a movement towards
 the floor after a short interval.
-- Buzzer:
-The buzzer should sound briefly during elevator arriving at the desired floor or elevator doors closing and movement 
+- 1 buzzer which sound briefly during elevator arriving at the desired floor or doors closing and movement 
 
 #### Link video YouTube : https://youtu.be/plprVaXs6RE?si=7qVTJfLfIF43Z5FZ
 ![elevator](https://github.com/Smaranda02/IntroductionToRobotics/assets/62556419/e48ecd26-a915-4afc-984b-167fa4bb9d89)
