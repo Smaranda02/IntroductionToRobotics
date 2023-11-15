@@ -65,6 +65,7 @@ Using the 4 digit 7 segment display and 3 buttons,
 implement a stopwatch timer that counts in 10ths of a second
 and has a save lap functionality.
 
+![4_7SegmentDisplay](https://github.com/Smaranda02/IntroductionToRobotics/assets/62556419/99c824fc-305a-4f9a-ae33-66fec139bb39)
 
-#### Link video YouTube : 
+#### Link video YouTube : https://youtu.be/jlFuOYD8d0A?si=XacSXAm1iJ8D0os4
 </details>
