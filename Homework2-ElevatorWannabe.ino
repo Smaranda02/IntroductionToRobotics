@@ -153,16 +153,20 @@ void checkButtonPress() {
 
 
 void movingDownwards() {
-  //The LED for the current floor has been in the HIGH state for long enough ( for the floorChangeTime period ) and we change its state
-  //to LOW, wishing it to stay in this state for the same time period
+  /*
+  The LED for the current floor has been in the HIGH state for long enough ( for the floorChangeTime period ) and we change its state
+  to LOW, wishing it to stay in this state for the same time period
+  */
   if (floors[currentFloor].floorLedState == HIGH && (millis() - lastFloorChange > floorChangeTime)) {
     floors[currentFloor].floorLedState = LOW;
     digitalWrite(floors[currentFloor].floorLed, floors[currentFloor].floorLedState);
     lastFloorChange = millis();
   }
 
-  //The LED for the previous floor has been in the LOW state for the desired time period therefore we continue to the next floor
-  //and we turn the corresponding LED on
+  /*
+  The LED for the previous floor has been in the LOW state for the desired time period therefore we continue to the next floor
+  and we turn the corresponding LED on
+  */
   if (floors[currentFloor].floorLedState == LOW && (millis() - lastFloorChange > floorChangeTime)) {
     currentFloor--;
     floors[currentFloor].floorLedState = HIGH;
