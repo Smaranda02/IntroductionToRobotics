@@ -83,5 +83,7 @@ Implement a smart environment monitor and looger with the use of sensors (ultras
 
 ![sensors](https://github.com/Smaranda02/IntroductionToRobotics/assets/62556419/dfa130a9-b330-46d4-889b-1c9aad72b773)
 
-#### Link video YouTube : 
+#### Link video YouTube for sensors : https://youtu.be/kxiF-Dkg9hY?si=jPD9EP9egMK84Fee
+#### Link video YouTube for serial menu : https://youtu.be/kxiF-Dkg9hY?si=jPD9EP9egMK84Fee
+
 </details>
