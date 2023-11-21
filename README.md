@@ -79,6 +79,9 @@ and has a save lap functionality.
  </summary>
 
 ### Task :
+Implement a smart environment monitor and looger with the use of sensors (ultrasonic, infrared and photocell) and LEDs for feedback. User interaction with the program is available through a serial menu :)
+
+![sensors](https://github.com/Smaranda02/IntroductionToRobotics/assets/62556419/dfa130a9-b330-46d4-889b-1c9aad72b773)
 
 #### Link video YouTube : 
 </details>
