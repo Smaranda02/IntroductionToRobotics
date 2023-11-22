@@ -50,11 +50,11 @@ const char RGB_LED_CONTROL_MENU[6][50] PROGMEM = {
 
 
 const char *const menuTable[][6] PROGMEM = {
-  { MENU[0], MENU[1], MENU[2], MENU[3], MENU[4], MENU[5]},
+  { MENU[0], MENU[1], MENU[2], MENU[3], MENU[4], MENU[5] },
   { SENSOR_SETTINGS_MENU[0], SENSOR_SETTINGS_MENU[1], SENSOR_SETTINGS_MENU[2], SENSOR_SETTINGS_MENU[3], SENSOR_SETTINGS_MENU[4], SENSOR_SETTINGS_MENU[5] },
-  { RESET_CONFIRMATION_MENU[0], RESET_CONFIRMATION_MENU[1], RESET_CONFIRMATION_MENU[2], RESET_CONFIRMATION_MENU[3], RESET_CONFIRMATION_MENU[4],RESET_CONFIRMATION_MENU[5] },
-  { SYSTEM_STATUS_MENU[0], SYSTEM_STATUS_MENU[1], SYSTEM_STATUS_MENU[2], SYSTEM_STATUS_MENU[3], SYSTEM_STATUS_MENU[4],SYSTEM_STATUS_MENU[5] },
-  { RGB_LED_CONTROL_MENU[0], RGB_LED_CONTROL_MENU[1], RGB_LED_CONTROL_MENU[2], RGB_LED_CONTROL_MENU[3], RGB_LED_CONTROL_MENU[4],RGB_LED_CONTROL_MENU[5] }
+  { RESET_CONFIRMATION_MENU[0], RESET_CONFIRMATION_MENU[1], RESET_CONFIRMATION_MENU[2], RESET_CONFIRMATION_MENU[3], RESET_CONFIRMATION_MENU[4], RESET_CONFIRMATION_MENU[5] },
+  { SYSTEM_STATUS_MENU[0], SYSTEM_STATUS_MENU[1], SYSTEM_STATUS_MENU[2], SYSTEM_STATUS_MENU[3], SYSTEM_STATUS_MENU[4], SYSTEM_STATUS_MENU[5] },
+  { RGB_LED_CONTROL_MENU[0], RGB_LED_CONTROL_MENU[1], RGB_LED_CONTROL_MENU[2], RGB_LED_CONTROL_MENU[3], RGB_LED_CONTROL_MENU[4], RGB_LED_CONTROL_MENU[5] }
 };
 
 int currentMenu = 0;
@@ -87,8 +87,8 @@ int redLedState = 0;
 int greenLedState = 255;
 
 
-int photocellPin = A0;  // the cell and 10K pulldown are connected to a0
-int photocellValue;     // the analog reading from the sensor divider
+int photocellPin = A0;
+int photocellValue;
 
 
 volatile bool automaticLedState = true;
@@ -145,6 +145,7 @@ void loop() {
 
   checkSensors();
 
+  //we check on which menu and which option (submenu) we are currently on
   switch (currentMenu) {
     case 0:
       menu0Options();
@@ -165,7 +166,7 @@ void loop() {
 }
 
 void checkSensors() {
-  //we constantly read values from sensors and store them if needed 
+  //we constantly read values from sensors and store them if needed
   ultrasonicValues();
   LDRValues();
   //infraRedValues();
@@ -174,17 +175,20 @@ void checkSensors() {
 
 void displayLedState() {
 
-  int ledValue = EEPROM.read(3);
+  int ledIntensity = EEPROM.read(3);
 
-  if (ultrasonicThresholdExceeded || ldrThresholdExceeded  || irThresholdExceeded) {
+  //if any of the thresholds are exceeded we turn the red LED ON
+  if (ultrasonicThresholdExceeded || ldrThresholdExceeded || irThresholdExceeded) {
     greenLedState = 0;
 
   } else {
-    greenLedState = ledValue;
+    greenLedState = ledIntensity;
   }
 
-  redLedState = (greenLedState == ledValue ? 0 : ledValue);
+  redLedState = (greenLedState == ledIntensity ? 0 : ledIntensity);
 
+
+  //if the red LED is ON we activate the buzzer
   if (redLedState == 0) {
     buzzed = false;
   } else {
@@ -212,11 +216,13 @@ void menu0Options() {
   if (Serial.available() > 0) {
     int input = Serial.parseInt();
 
+
+    //before we go to a submenu we reset the shown variable to false in order to display the menu
     switch (input) {
       case 1:
         {
-          menu1Options(0);
           shown = false;
+          menu1Options(0);
         }
         break;
       case 2:
@@ -315,7 +321,6 @@ void menu1Options(int option) {
 
 
 void ldrThreshold() {
-  //for threshold
   if (!shown) {
     Serial.print(F("Enter the min LDR threshold between "));
     Serial.print(minLDRThreshold);
@@ -325,7 +330,9 @@ void ldrThreshold() {
   }
   if (Serial.available() > 0) {
     int input = Serial.parseInt();
-    if (input <= maxLDRThreshold && input>=minLDRThreshold) {
+
+    //if the read value is between our parameters we store it to EEPROM
+    if (input <= maxLDRThreshold && input >= minLDRThreshold) {
       //minLDRThreshold = input;
       EEPROM.update(1, input);
       shown = false;
@@ -347,7 +354,6 @@ void ultrasonicThreshold() {
   if (!shown) {
     Serial.print(F("Enter the Maximum Ultrasonic Alert Threshold under "));
     Serial.println(ultrasonicMaxThreshold);
-    
     shown = true;
   }
   if (Serial.available() > 0) {
@@ -374,7 +380,7 @@ void infraredThreshold() {
   if (!shown) {
     Serial.print(F("Enter the Maximum Infrared Alert Threshold under "));
     Serial.println(maxIrThreshold);
-    
+
     shown = true;
   }
   if (Serial.available() > 0) {
@@ -537,15 +543,16 @@ void currentSensorReadings() {
     input = (char)Serial.read();
   }
 
+  //we stop reading when the user presses 'x'
   if (input != 'x') {
     LDRValues();
     ultrasonicValues();
+    //infraRedValues();
+
   } else {
     shown = false;
     currentOption = 0;
   }
-
-  //infraRedValues();
 }
 
 //DONE
@@ -581,6 +588,14 @@ void displayLoggedData() {
     displayLoggedDataFormat(loggedLdrData[i], i);
   }
 
+  Serial.println("---------------");
+
+
+  Serial.println(F("The last 10 IR sensor readings are : "));
+  for (int i = 0; i < maxLoggedData; i++) {
+    displayLoggedDataFormat(loggedIrData[i], i);
+  }
+
   currentOption = 0;
   shown = 0;
 }
@@ -601,20 +616,27 @@ void LDRValues() {
 
     //print and log LDR data
     if (currentMenu == 3 && currentOption == 1) {
-      Serial.println(F("----------------"));
-      Serial.print(F("LDR reading = "));
-      Serial.println(photocellValue);  // the raw analog reading
-
-      loggedLdrData[ldrDataIndex] = photocellValue;
-      ldrDataIndex++;
-      if (ldrDataIndex > 9) {
-        ldrDataIndex = 0;
-      }
+      printLDRValues();
+      logLDRValues();
     }
 
     checkLdrThreshold();
     lastLdrReading = millis();
   }
+}
+
+void logLDRValues() {
+  loggedLdrData[ldrDataIndex] = photocellValue;
+  ldrDataIndex++;
+  if (ldrDataIndex > 9) {
+    ldrDataIndex = 0;
+  }
+}
+
+void printLDRValues() {
+  Serial.println(F("----------------"));
+  Serial.print(F("LDR reading = "));
+  Serial.println(photocellValue);  // the raw analog reading
 }
 
 void readLDR() {
@@ -642,23 +664,28 @@ void infraRedValues() {
     distanceIR = 13 * pow(voltage, -1);        // extracted from the datasheet
 
     if (currentMenu == 3 && currentOption == 1) {
-      Serial.print(F("Distance Infrared: "));
-      Serial.println(distanceIR);
-
-      Serial.println(F("Press 'x' to exit the leave logger"));
-      Serial.println(F("----------------"));
-
-      loggedIrData[irDataIndex] = distanceIR;
-      irDataIndex++;
-      if (irDataIndex > 9) {
-        irDataIndex = 0;
-      }
+      printInfraredValues();
+      logInfraredValues();
     }
 
-    Serial.println(distanceIR);
-    // delay(500);
     checkIrThreshold();
     lastIrReading = millis();
+  }
+}
+
+void printInfraredValues() {
+  Serial.print(F("Distance Infrared: "));
+  Serial.println(distanceIR);
+
+  Serial.println(F("Press 'x' to exit the leave logger"));
+  Serial.println(F("----------------"));
+}
+
+void logInfraredValues() {
+  loggedIrData[irDataIndex] = distanceIR;
+  irDataIndex++;
+  if (irDataIndex > 9) {
+    irDataIndex = 0;
   }
 }
 
@@ -795,6 +822,8 @@ void manualColorControl() {
   }
   if (Serial.available() > 0) {
     int input = Serial.parseInt();
+
+    //here we let the user to manually control the intensity of the LEDs
     if (input >= 0 && input <= 255) {
       EEPROM.update(3, input);
       shown = false;
