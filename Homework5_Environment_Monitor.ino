@@ -135,10 +135,10 @@ void setup() {
   pinMode(trigPin, OUTPUT);  // Sets the trigPin as an Output
   pinMode(echoPin, INPUT);
 
-  // EEPROM.update(0, ultrasonicMaxThreshold);
-  // EEPROM.update(1, minLDRThreshold);
-  // EEPROM.update(2, maxIrThreshold);
-  // EEPROM.update(3, 255);
+  EEPROM.update(0, ultrasonicMaxThreshold);
+  EEPROM.update(1, minLDRThreshold);
+  EEPROM.update(2, maxIrThreshold);
+  EEPROM.update(3, 255);
 }
 
 void loop() {
@@ -350,7 +350,6 @@ void ldrThreshold() {
 
 void ultrasonicThreshold() {
 
-  //for threshold
   if (!shown) {
     Serial.print(F("Enter the Maximum Ultrasonic Alert Threshold under "));
     Serial.println(ultrasonicMaxThreshold);
@@ -535,7 +534,6 @@ void menu3Options(int option) {
 }
 
 
-//DONE
 void currentSensorReadings() {
 
   char input;
@@ -555,7 +553,7 @@ void currentSensorReadings() {
   }
 }
 
-//DONE
+
 void currentSensorSettings() {
 
   Serial.println("---------------");
@@ -573,7 +571,6 @@ void currentSensorSettings() {
   shown = false;
 }
 
-//DONE
 void displayLoggedData() {
   Serial.println(F("The last 10 ultrasonic sensor readings are : "));
   for (int i = 0; i < maxLoggedData; i++) {
