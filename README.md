@@ -100,6 +100,8 @@ Implement a smart environment monitor and looger with the use of sensors (ultras
 ### Task :
 Basic simulator of Bomberman game using 8x8 matrix, the MAX7219 display driver, a joystick and other components that facilitate a games like experience for a user who tries to destroy the obstacles.
 
+#### References : Bomberman video: https://www.youtube.com/watch?v=2xErEj86Yd
+
 #### Link video YouTube : 
 
 </details>
