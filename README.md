@@ -104,6 +104,6 @@ Basic simulator of Bomberman game using 8x8 matrix, the MAX7219 display driver, 
 
 #### References : Bomberman video: https://www.youtube.com/watch?v=2xErEj86Yd
 
-#### Link video YouTube : 
+#### Link video YouTube : https://www.youtube.com/watch?v=axd7_uNmOS0
 
 </details>
