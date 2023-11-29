@@ -13,7 +13,7 @@ int idleMin = 510;
 int idleMax = 550;
 
 // external button
-const unsigned long debounceDelay = 200;  // Debounce time in milliseconds
+const unsigned long debounceDelay = 200; 
 const int buttonPin = 2;
 volatile bool isButtonPressed = false;
 unsigned long lastInterruptTime = 0;
