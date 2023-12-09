@@ -107,3 +107,21 @@ Basic simulator of Bomberman game using 8x8 matrix, the MAX7219 display driver, 
 #### Link video YouTube : https://www.youtube.com/watch?v=axd7_uNmOS0
 
 </details>
+
+
+<details>
+<summary>
+  
+  ## Homework 7
+
+ </summary>
+
+### Task :
+An LCD menu was added to the Bomberman simulator game, which includes information about the game and myself (my Github account and my name). You can also control the matrix and the LCD brightness from a "Settings" option. During the game, relevant details are displayed such as number of points, lives, time left and number of obstacles distroyed. Transition between menus is smooth and intuitive. Check the video below for a more in-depth view :)
+
+![LCD_Menu](https://github.com/Smaranda02/IntroductionToRobotics/assets/62556419/911f3659-a561-4c2f-8cd2-1ec3c04c4e81)
+
+#### Link video YouTube : [https://www.youtube.com/watch?v=axd7_uNmOS0](https://youtu.be/0yaQ84CQFiM?si=zIiypFNV_lOOa1JO)https://youtu.be/0yaQ84CQFiM?si=zIiypFNV_lOOa1JO
+
+</details>
+
